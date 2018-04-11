@@ -2,9 +2,12 @@ from PIL import Image
 from pylab import *
 from skimage import filters
 import numpy as np
+from mpl_toolkits.mplot3d import Axes3D
+import matplotlib.pyplot as plt
+
+G = np.zeros((52,52))
 
 def OTSU(im_gray):
-    g_min = 9999999
     g_max = 0
     best_th = 0
     for threshold1 in range(0,256,5):
@@ -34,6 +37,12 @@ def OTSU(im_gray):
             u = w1*u1 + w2*u2 + w0*u0
             g = w1*(u1-u)*(u1-u) + w0*(u0-u)*(u0-u)+w2*(u2-u)*(u2-u)
 
+
+
+            G[int(threshold1/5)][int(threshold2/5)] = g
+            
+            
+
             if g_max < g:
                 g_max = g
                 best_th1 = threshold1
@@ -41,17 +50,16 @@ def OTSU(im_gray):
                 best_u0 = u0
                 best_u1 = u1
                 best_u2 = u2
-    return best_th1,best_th2,best_u0,best_u1,best_u2
+                
 
-im_gray = array(Image.open("picture/a.jpg").convert('L'))
+    return best_th1,best_th2,best_u0,best_u1,best_u2,G
+
+im_gray = array(Image.open("picture/b.jpg").convert('L'))
 
 
-
-
-edges = filters.gaussian(im_gray,sigma = 1)   #sigma=0.4
+edges = filters.gaussian(im_gray,sigma = 1) 
 edges = edges * 255
-th1,th2,u0,u1,u2 = OTSU(edges)
-
+th1,th2,u0,u1,u2,G = OTSU(edges)
 
 
 
@@ -83,11 +91,29 @@ axis('off')
 figure('figure')
 
 hist(im_gray.flatten(),256)
-
 show()
 
 
 
+
+fig = plt.figure()
+ax = Axes3D(fig)
+
+X = np.arange(0, 256, 5)
+Y = np.arange(0, 256, 5)
+X, Y = np.meshgrid(X, Y)
+
+
+ 
+# 绘制曲面图，并使用 cmap 着色
+ax.plot_surface(X, Y, G, cmap=plt.cm.coolwarm)
+
+ax.set_xlabel('threshold1')  
+ax.set_ylabel('threshold2')  
+ax.set_zlabel('G')
+# 绘制线型图
+
+plt.show()
 
 
 
