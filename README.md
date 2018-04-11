@@ -16,26 +16,26 @@ Two files:
 
 1.	Two_classification:
 
-Divide the picture into two different parts: foreground pixels and background pixels.
+    Divide the picture into two different parts: foreground pixels and background pixels.
 
-Result: 
+    Result: 
 
-The first picture is the binary image without using Gaussian Filter.
+    The first picture is the binary image without using Gaussian Filter.
 
-Threshold = 117
-
-
-Second one is the binary image after using Gaussian Filter. (sigma = 1)
-
-Threshold = 121
+    Threshold = 117
 
 
-From the histogram, we can find b.jpg actually has four levels of depth. But we just classify it into two class. (The top of the curve is the best threshold)
+    Second one is the binary image after using Gaussian Filter. (sigma = 1)
+
+    Threshold = 121
+
+
+    From the histogram, we can find b.jpg actually has four levels of depth. But we just classify it into two class. (The top of the curve is the best threshold)
 
 2.	Three_classification:
 
-Result:
+    Result:
 
-Threshold = 100, 185
+    Threshold = 100, 185
 
-The top of the surface is the best threshold
+    The top of the surface is the best threshold
