@@ -14,11 +14,11 @@ Two files:
 
 (using b.jpg)
 
-1.	Two_classification:
+## 1.	Two_classification:
 
     Divide the picture into two different parts: foreground pixels and background pixels.
 
-    # Result: 
+    Result: 
 
     The first picture is the binary image without using Gaussian Filter.
 
@@ -32,7 +32,7 @@ Two files:
 
     From the histogram, we can find b.jpg actually has four levels of depth. But we just classify it into two class. (The top of the curve is the best threshold)
 
-2.	Three_classification:
+## 2.	Three_classification:
 
     Result:
 
