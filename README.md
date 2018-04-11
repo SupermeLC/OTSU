@@ -38,4 +38,4 @@ Two files:
 
     Threshold = 100, 185
 
-    The top of the surface is the best threshold
+    The top of the surface are the best thresholds
