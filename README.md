@@ -18,7 +18,7 @@ Two files:
 
     Divide the picture into two different parts: foreground pixels and background pixels.
 
-    Result: 
+    # Result: 
 
     The first picture is the binary image without using Gaussian Filter.
 
