@@ -8,11 +8,7 @@ Resource: https://en.wikipedia.org/wiki/Otsu%27s_method
 
 Others: During the coding, I found that there is few example about the OTSU multi-classification. So I just tried my best to reason the formulas to achieve the three classification.
 
-Two files: 
-
-#==================================================
-
-(using b.jpg)
+Two files:  (using b.jpg)
 
 ## 1.	Two_classification
 
